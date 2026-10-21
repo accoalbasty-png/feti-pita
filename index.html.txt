@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FETI-PITA | Fast Food Digital Menu</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#e11d48',
+              600: '#dc2626',
+              700: '#b91c1c',
+              800: '#991b1b',
+              900: '#7f1d1d',
+              gold: '#fbbf24',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Noto Sans Ethiopic', 'Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0b0f19;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', 'Cairo', sans-serif;
+    }
+    .glass-card {
+      background: rgba(24, 20, 28, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .glass-card:hover {
+      border-color: rgba(239, 68, 68, 0.5);
+    }
+    .glow-red {
+      box-shadow: 0 0 25px rgba(220, 38, 38, 0.25);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-600 selection:text-white">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-brand-900 via-brand-700 to-brand-900 text-amber-200 py-2 px-4 text-xs md:text-sm text-center font-semibold tracking-wide flex items-center justify-center gap-2 border-b border-brand-800">
+    <i class="fa-solid fa-clock"></i>
+    <span id="txt-top-hours">Open Daily: 7:00 AM – 9:00 PM | Jamo 1, Behind Sadamo Tower</span>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-[#0f1422]/90 backdrop-blur-md border-b border-red-900/30">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      
+      <!-- Logo Branding -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="image_7b76a5.jpg" alt="Feti Pita Logo" class="h-12 w-auto object-contain rounded-lg border border-red-500/30 group-hover:scale-105 transition-transform duration-300">
+        <div>
+          <h1 class="font-extrabold text-xl md:text-2xl text-white tracking-tight leading-none group-hover:text-red-400 transition-colors">
+            FETI<span class="text-brand-500">-PITA</span>
+          </h1>
+          <p class="text-[10px] md:text-xs text-amber-400 font-medium tracking-wider uppercase" id="txt-nav-motto">
+            FAST, FRESH AND ALWAYS READY!
+          </p>
+        </div>
+      </a>
+
+      <!-- Language Selector & Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Language Dropdown -->
+        <div class="relative">
+          <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-red-950/60 text-white text-xs md:text-sm font-semibold py-2 px-3 rounded-xl border border-red-700/50 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer">
+            <option value="en">🇺🇸 English</option>
+            <option value="am">🇪🇹 አማርኛ</option>
+            <option value="ar">🇸🇦 العربية</option>
+          </select>
+        </div>
+
+        <!-- Phone Button -->
+        <a href="tel:+251900000000" class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-red-600 to-brand-700 hover:from-red-500 hover:to-brand-600 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-lg hover:shadow-red-600/30">
+          <i class="fa-solid fa-phone"></i>
+          <span id="txt-call-btn">Call Store</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative py-10 px-4 bg-gradient-to-b from-[#151a28] to-[#0b0f19] border-b border-red-900/20 overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      
+      <!-- Central Logo Image Showcase -->
+      <div class="mb-6 flex justify-center">
+        <img src="image_7b76a5.jpg" alt="Feti Pita Showcase Logo" class="h-28 md:h-36 w-auto object-contain rounded-2xl shadow-2xl border-2 border-red-500/40 glow-red">
+      </div>
+
+      <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-3">
+        <span id="txt-hero-title">Welcome to</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-400 to-red-400">FETI-PITA</span>
+      </h2>
+      
+      <p class="text-amber-400 font-bold text-sm md:text-lg mb-4" id="txt-hero-subtitle">
+        FAST, FRESH AND ALWAYS READY!
+      </p>
+
+      <!-- Fetira Preparation Highlight Box -->
+      <div class="glass-card max-w-2xl mx-auto p-4 md:p-5 rounded-2xl border-l-4 border-l-red-500 text-left md:text-center shadow-xl">
+        <div class="flex items-center md:justify-center gap-3 mb-2">
+          <span class="text-2xl">🔥</span>
+          <h3 class="font-bold text-base md:text-lg text-white" id="txt-fetira-feature-title">
+            100% Hand-Stretched Fetira (ፈጢራ) Base
+          </h3>
+        </div>
+        <p class="text-xs md:text-sm text-gray-300 leading-relaxed" id="txt-fetira-feature-desc">
+          Every Melewa, Ertib, and breakfast dish is freshly prepared on our hot griddle using our signature flaky, layered flatbread!
+        </p>
+      </div>
+
+      <!-- Info Pills -->
+      <div class="flex flex-wrap justify-center gap-4 mt-6 text-xs text-gray-300">
+        <div class="flex items-center gap-2 bg-red-950/40 px-3 py-1.5 rounded-full border border-red-800/40">
+          <i class="fa-solid fa-location-dot text-red-500"></i>
+          <span id="txt-location-pill">Jamo 1, Behind Sadamo Tower</span>
+        </div>
+        <div class="flex items-center gap-2 bg-red-950/40 px-3 py-1.5 rounded-full border border-red-800/40">
+          <i class="fa-solid fa-clock text-amber-400"></i>
+          <span id="txt-hours-pill">7:00 AM – 9:00 PM</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN MENU SECTION -->
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow">
+    
+    <!-- SEARCH & FILTER BAR -->
+    <div class="mb-8 space-y-4">
+      
+      <!-- Search Input -->
+      <div class="relative max-w-md mx-auto">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        <input type="text" id="searchInput" oninput="filterMenu()" placeholder="Search delicious food & drinks..." class="w-full bg-[#161c2d] text-white pl-11 pr-4 py-3 rounded-2xl border border-red-900/40 focus:outline-none focus:border-red-500 text-sm shadow-inner transition-all">
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none justify-start md:justify-center" id="categoryTabs">
+        <!-- Generated Dynamically -->
+      </div>
+    </div>
+
+    <!-- MENU ITEMS GRID -->
+    <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Items Injected by JS -->
+    </div>
+
+    <!-- Empty Search State -->
+    <div id="noResults" class="hidden text-center py-16 text-gray-400">
+      <i class="fa-solid fa-utensils text-4xl mb-3 text-red-500/40"></i>
+      <p id="txt-no-results" class="text-base font-semibold">No items found matching your search.</p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#080b12] border-t border-red-950 py-8 px-4 text-center text-xs text-gray-400">
+    <div class="max-w-4xl mx-auto space-y-4">
+      
+      <div class="flex items-center justify-center gap-3">
+        <img src="image_7b76a5.jpg" alt="Feti Pita Footer Logo" class="h-10 w-auto rounded-md">
+        <span class="font-extrabold text-lg text-white">FETI<span class="text-red-500">-PITA</span></span>
+      </div>
+
+      <p class="text-amber-400 font-medium" id="txt-footer-motto">
+        FAST, FRESH AND ALWAYS READY!
+      </p>
+
+      <p id="txt-footer-location">
+        📍 Jamo 1, Behind Sadamo Tower, Addis Ababa, Ethiopia
+      </p>
+
+      <p class="text-gray-500 pt-4 border-t border-gray-800">
+        &copy; 2026 FETI-PITA Fast Food. All Rights Reserved. Digital Menu Showcase.
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT APP DATA & LOGIC -->
+  <script>
+    // TRANSLATIONS DATA
+    const i18n = {
+      en: {
+        topHours: "Open Daily: 7:00 AM – 9:00 PM | Jamo 1, Behind Sadamo Tower",
+        motto: "FAST, FRESH AND ALWAYS READY!",
+        callBtn: "Call Store",
+        heroTitle: "Welcome to",
+        heroSubtitle: "FAST, FRESH AND ALWAYS READY!",
+        fetiraTitle: "100% Hand-Stretched Fetira (ፈጢራ) Base",
+        fetiraDesc: "Every Melewa, Ertib, and breakfast dish is freshly prepared on our hot griddle using our signature flaky, layered flatbread!",
+        locPill: "Jamo 1, Behind Sadamo Tower",
+        hoursPill: "7:00 AM – 9:00 PM",
+        searchPlaceholder: "Search delicious food & drinks...",
+        noResults: "No menu items found matching your search.",
+        footerLocation: "📍 Jamo 1, Behind Sadamo Tower, Addis Ababa, Ethiopia",
+        categories: {
+          all: "All Menu",
+          melewa: "🌯 Melewa",
+          ertib: "🌮 Ertib & Sides",
+          breakfast: "🍳 Breakfast",
+          drinks: "☕ Hot Drinks",
+          juices: "🧃 Fresh Juices",
+          extra: "🧀 Extras"
+        }
+      },
+      am: {
+        topHours: "በየቀኑ ክፍት ነው፡ ከጠዋቱ 1:00 እስከ ማታ 3:00 | ጃሞ 1 ከሳዳሞ ታወር ጀርባ",
+        motto: "ፈጣን፡ ትኩስ እና ሁልጊዜ ዝግጁ!",
+        callBtn: "ደውለው ይዘዙ",
+        heroTitle: "እንኳን ደህና መጡ ወደ",
+        heroSubtitle: "ፈጣን፡ ትኩስ እና ሁልጊዜ ዝግጁ!",
+        fetiraTitle: "በእጅ የተዘረጋ 100% የፈጢራ መሰረት",
+        fetiraDesc: "እያንዳንዱ መለዋ፣ እርጥብ እና የቁርስ ምግብ በሙቅ ምጣድ ላይ በሚጣፍጥ የፈጢራ ሊጥ ይዘጋጃል!",
+        locPill: "ጃሞ 1 ከሳዳሞ ታወር ጀርባ",
+        hoursPill: "ከጠዋቱ 1:00 - ማታ 3:00",
+        searchPlaceholder: "ምግቦችን ወይም መጠጦችን ይፈልጉ...",
+        noResults: "ያፈለጉት ምግብ አልተገኘም።",
+        footerLocation: "📍 አዲስ አበባ፣ ጃሞ 1 ከሳዳሞ ታወር ጀርባ፣ ኢትዮጵያ",
+        categories: {
+          all: "ሁሉንም",
+          melewa: "🌯 መለዋ",
+          ertib: "🌮 እርጥብ እና ጎንዮሽ",
+          breakfast: "🍳 የቁርስ ምግቦች",
+          drinks: "☕ ፍል መጠጦች",
+          juices: "🧃 ጭማቂዎች",
+          extra: "🧀 ተጨማሪዎች"
+        }
+      },
+      ar: {
+        topHours: "مفتوح يومياً: 7:00 صباحاً – 9:00 مساءً | جامو 1، خلف برج سادامو",
+        motto: "سريع، طازج وجاهز دائماً!",
+        callBtn: "اتصل بنا",
+        heroTitle: "أهلاً بكم في",
+        heroSubtitle: "سريع، طازج وجاهز دائماً!",
+        fetiraTitle: "قاعدة فطيرة طازجة 100% محضرة يدوياً",
+        fetiraDesc: "جميع أطباق الملوى، الإرطب والإفطار تُحضر طازجة على الصاج باستخدام الفطيرة المقرمشة!",
+        locPill: "جامو 1، خلف برج سادامو",
+        hoursPill: "7:00 ص – 9:00 م",
+        searchPlaceholder: "ابحث عن الوجبات والمشروبات...",
+        noResults: "لم يتم العثور على نتائج للبحث.",
+        footerLocation: "📍 أديس أبابا، جامو 1 خلف برج سادامو، إثيوبيا",
+        categories: {
+          all: "الكل",
+          melewa: "🌯 ملوى",
+          ertib: "🌮 إرطب والمقبلات",
+          breakfast: "🍳 الإفطار",
+          drinks: "☕ مشروبات ساخنة",
+          juices: "🧃 عصائر طازجة",
+          extra: "🧀 إضافات"
+        }
+      }
+    };
+
+    // MENU DATABASE
+    const menuItems = [
+      // Melewa
+      { id: 1, category: "melewa", nameEn: "Melewa with Beef", nameAm: "የበሬ ስጋ መለዋ", nameAr: "ملوى باللحم البقري", price: 400, icon: "🥩" },
+      { id: 2, category: "melewa", nameEn: "Melewa with Chicken", nameAm: "የዶሮ ስጋ መለዋ", nameAr: "ملوى بالدجاج", price: 400, icon: "🍗" },
+      { id: 3, category: "melewa", nameEn: "Special Melewa", nameAm: "ስፔሻል መለዋ", nameAr: "ملوى سبشيل", price: 460, icon: "⭐" },
+      { id: 4, category: "melewa", nameEn: "Melewa with Egg & Vegetable", nameAm: "የእንቁላል እና አትክልት መለዋ", nameAr: "ملوى بالبيض والخضار", price: 180, icon: "🥚" },
+      { id: 5, category: "melewa", nameEn: "Melewa with Honey", nameAm: "የማር መለዋ", nameAr: "ملوى بالعسل", price: 150, icon: "🍯" },
+      { id: 6, category: "melewa", nameEn: "Vegetable Melewa", nameAm: "የአትክልት መለዋ", nameAr: "ملوى بالخضار", price: 150, icon: "🥗" },
+
+      // Ertib & Sides
+      { id: 7, category: "ertib", nameEn: "Normal Ertib", nameAm: "ኖርማል እርጥብ", nameAr: "إرطب عادي", price: 200, icon: "🌯" },
+      { id: 8, category: "ertib", nameEn: "Special Ertib", nameAm: "ስፔሻል እርጥብ", nameAr: "إرطب سبشيل", price: 300, icon: "👑" },
+      { id: 9, category: "ertib", nameEn: "Sambusa", nameAm: "ሳምቡሳ", nameAr: "سمبوسة", price: 40, icon: "📐" },
+      { id: 10, category: "ertib", nameEn: "French Fries", nameAm: "የድንች ጥብስ (ቺፕስ)", nameAr: "بطاطس مقلية", price: 200, icon: "🍟" },
+      { id: 11, category: "ertib", nameEn: "Felafil", nameAm: "ፈላፍል", nameAr: "فلافل", price: 250, icon: "🧆" },
+
+      // Breakfast
+      { id: 12, category: "breakfast", nameEn: "Enkulal Firfir", nameAm: "እንቁላል ፍርፍር", nameAr: "إنكولال فرفر (بيض)", price: 350, icon: "🍳" },
+      { id: 13, category: "breakfast", nameEn: "Ful", nameAm: "ፉል", nameAr: "فول مدمس", price: 250, icon: "🫘" },
+      { id: 14, category: "breakfast", nameEn: "Normal Chechebsa", nameAm: "ኖርማል ጨጨብሳ", nameAr: "شيشبسا عادي", price: 320, icon: "🫓" },
+      { id: 15, category: "breakfast", nameEn: "Special Chechebsa", nameAm: "ስፔሻል ጨጨብሳ", nameAr: "شيشبسا سبشيل", price: 350, icon: "🌟" },
+
+      // Juices
+      { id: 16, category: "juices", nameEn: "Temr Juice (Date Juice)", nameAm: "ተመር ጁስ", nameAr: "عصير تمر", price: 250, icon: "🌴" },
+      { id: 17, category: "juices", nameEn: "Gishata Juice (Soursop)", nameAm: "ጊሻጣ ጁስ", nameAr: "عصير قشطة", price: 200, icon: "🥑" },
+      { id: 18, category: "juices", nameEn: "Yogurt (500ml Plain)", nameAm: "እርጎ (500ml)", nameAr: "زبادي (500 مل)", price: 120, icon: "🥛" },
+      { id: 19, category: "juices", nameEn: "Yogurt (250ml Plain)", nameAm: "እርጎ (250ml)", nameAr: "زبادي (250 مل)", price: 60, icon: "🥛" },
+      { id: 20, category: "juices", nameEn: "Yogurt with Chocolate (500ml)", nameAm: "እርጎ በቾኮሌት (500ml)", nameAr: "زبادي بالشوكولاتة (500 مل)", price: 150, icon: "🍫" },
+      { id: 21, category: "juices", nameEn: "Yogurt with Chocolate (250ml)", nameAm: "እርጎ በቾኮሌት (250ml)", nameAr: "زبادي بالشوكولاتة (250 مل)", price: 100, icon: "🍫" },
+      { id: 22, category: "juices", nameEn: "Yogurt with Honey (500ml)", nameAm: "እርጎ በማር (500ml)", nameAr: "زبادي بالعسل (500 مل)", price: 150, icon: "🍯" },
+      { id: 23, category: "juices", nameEn: "Yogurt with Honey (250ml)", nameAm: "እርጎ በማር (250ml)", nameAr: "زبادي بالعسل (250 مل)", price: 100, icon: "🍯" },
+
+      // Hot Drinks
+      { id: 24, category: "drinks", nameEn: "Tea", nameAm: "ሻይ", nameAr: "شاي", price: 30, icon: "🫖" },
+      { id: 25, category: "drinks", nameEn: "Coffee", nameAm: "ቡና", nameAr: "قهوة", price: 50, icon: "☕" },
+      { id: 26, category: "drinks", nameEn: "Peanut Tea", nameAm: "የለውዝ ሻይ", nameAr: "شاي بالفول السوداني", price: 70, icon: "🥜" },
+
+      // Extras
+      { id: 27, category: "extra", nameEn: "Extra Beef", nameAm: "ተጨማሪ የበሬ ስጋ", nameAr: "إضافة لحم بقري", price: 40, icon: "🥩" },
+      { id: 28, category: "extra", nameEn: "Extra Chicken", nameAm: "ተጨማሪ የዶሮ ስጋ", nameAr: "إضافة دجاج", price: 40, icon: "🍗" },
+      { id: 29, category: "extra", nameEn: "Mayonnaise", nameAm: "ማዮኔዝ", nameAr: "مايونيز", price: 40, icon: "🫙" },
+      { id: 30, category: "extra", nameEn: "Ketchup", nameAm: "ካቻፕ", nameAr: "كاتشب", price: 30, icon: "🥫" }
+    ];
+
+    let currentLang = 'en';
+    let currentCategory = 'all';
+
+    // INITIALIZE APP
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCategoryTabs();
+      renderMenu();
+    });
+
+    // CHANGE LANGUAGE
+    function changeLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      // Update static texts
+      document.getElementById('txt-top-hours').innerText = i18n[lang].topHours;
+      document.getElementById('txt-nav-motto').innerText = i18n[lang].motto;
+      document.getElementById('txt-call-btn').innerText = i18n[lang].callBtn;
+      document.getElementById('txt-hero-title').innerText = i18n[lang].heroTitle;
+      document.getElementById('txt-hero-subtitle').innerText = i18n[lang].heroSubtitle;
+      document.getElementById('txt-fetira-feature-title').innerText = i18n[lang].fetiraTitle;
+      document.getElementById('txt-fetira-feature-desc').innerText = i18n[lang].fetiraDesc;
+      document.getElementById('txt-location-pill').innerText = i18n[lang].locPill;
+      document.getElementById('txt-hours-pill').innerText = i18n[lang].hoursPill;
+      document.getElementById('searchInput').placeholder = i18n[lang].searchPlaceholder;
+      document.getElementById('txt-no-results').innerText = i18n[lang].noResults;
+      document.getElementById('txt-footer-motto').innerText = i18n[lang].motto;
+      document.getElementById('txt-footer-location').innerText = i18n[lang].footerLocation;
+
+      renderCategoryTabs();
+      renderMenu();
+    }
+
+    // RENDER CATEGORY FILTER TABS
+    function renderCategoryTabs() {
+      const container = document.getElementById('categoryTabs');
+      const cats = i18n[currentLang].categories;
+      const keys = ['all', 'melewa', 'ertib', 'breakfast', 'juices', 'drinks', 'extra'];
+
+      container.innerHTML = keys.map(key => {
+        const active = currentCategory === key;
+        const activeClass = active 
+          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white font-bold shadow-lg shadow-red-900/40 border-red-500' 
+          : 'bg-[#151a28] text-gray-300 hover:bg-red-950/50 hover:text-white border-red-900/30';
+        return `
+          <button onclick="setCategory('${key}')" class="px-4 py-2 rounded-xl text-xs md:text-sm whitespace-nowrap border transition-all ${activeClass}">
+            ${cats[key]}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setCategory(catKey) {
+      currentCategory = catKey;
+      renderCategoryTabs();
+      renderMenu();
+    }
+
+    // RENDER MENU ITEMS
+    function renderMenu() {
+      const grid = document.getElementById('menuGrid');
+      const noResults = document.getElementById('noResults');
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+
+      const filtered = menuItems.filter(item => {
+        const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+        const nameField = currentLang === 'am' ? item.nameAm : (currentLang === 'ar' ? item.nameAr : item.nameEn);
+        const matchesSearch = nameField.toLowerCase().includes(searchQuery) || item.nameEn.toLowerCase().includes(searchQuery);
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      grid.innerHTML = filtered.map(item => {
+        const title = currentLang === 'am' ? item.nameAm : (currentLang === 'ar' ? item.nameAr : item.nameEn);
+        return `
+          <div class="glass-card rounded-2xl p-5 flex items-center justify-between transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-900/60 to-red-950 flex items-center justify-center text-2xl border border-red-800/40 shrink-0">
+                ${item.icon}
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm md:text-base leading-snug">${title}</h4>
+                <p class="text-[11px] text-amber-400 font-semibold mt-0.5">FETI-PITA Fast Food</p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-lg md:text-xl font-extrabold text-white">${item.price}</span>
+              <span class="text-xs font-bold text-red-400 ml-1">ETB</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterMenu() {
+      renderMenu();
+    }
+  </script>
+</body>
+</html>
