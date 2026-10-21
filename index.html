@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="dark scroll-smooth">
+<html lang="en" dir="ltr" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -40,52 +40,50 @@
   </script>
 
   <style>
-    *, ::before, ::after {
-      box-sizing: border-box;
+    * {
+      box-sizing: border-box !important;
+      -webkit-tap-highlight-color: transparent;
     }
-    html {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-    body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
+    html, body {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
       background-color: #0b0f19;
       color: #f3f4f6;
       font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', 'Cairo', sans-serif;
     }
     .glass-card {
-      background: rgba(24, 20, 28, 0.85);
+      background: rgba(24, 20, 28, 0.95);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.25);
     }
     .glow-red {
-      box-shadow: 0 0 25px rgba(220, 38, 38, 0.25);
+      box-shadow: 0 0 20px rgba(220, 38, 38, 0.25);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-brand-600 selection:text-white">
+<body class="min-h-screen flex flex-col justify-between">
 
   <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="bg-gradient-to-r from-brand-900 via-brand-700 to-brand-900 text-amber-200 py-1.5 px-2 text-[10px] sm:text-xs text-center font-semibold tracking-wide flex items-center justify-center gap-1 border-b border-brand-800 w-full overflow-hidden">
+  <div class="bg-gradient-to-r from-brand-900 via-brand-700 to-brand-900 text-amber-200 py-1.5 px-2 text-[10px] text-center font-semibold flex items-center justify-center gap-1 border-b border-brand-800 w-full overflow-hidden">
     <i class="fa-solid fa-clock text-amber-300 shrink-0"></i>
     <span id="txt-top-hours" class="truncate">Open Daily: 7:00 AM – 9:00 PM | Jamo 1, Behind Sadamo Tower</span>
   </div>
 
   <!-- NAVIGATION BAR -->
-  <header class="sticky top-0 z-40 bg-[#0f1422]/95 backdrop-blur-md border-b border-red-900/30 w-full">
+  <header class="sticky top-0 z-40 bg-[#0f1422] border-b border-red-900/40 w-full">
     <div class="max-w-6xl mx-auto px-3 py-2 flex items-center justify-between gap-2 w-full">
       
       <!-- Logo Branding -->
-      <a href="#" class="flex items-center gap-2 group shrink min-w-0">
-        <img src="image_7b76a5.jpg" alt="Feti Pita Logo" class="h-8 sm:h-10 w-auto object-contain rounded-lg border border-red-500/30 shrink-0">
+      <a href="#" class="flex items-center gap-2 shrink min-w-0">
+        <img src="image_7b76a5.jpg" alt="Feti Pita Logo" class="h-8 w-auto object-contain rounded-lg border border-red-500/30 shrink-0">
         <div class="min-w-0">
-          <h1 class="font-extrabold text-sm sm:text-lg text-white tracking-tight leading-none truncate">
+          <h1 class="font-extrabold text-sm text-white tracking-tight leading-none truncate">
             FETI<span class="text-brand-500">-PITA</span>
           </h1>
-          <p class="text-[8px] sm:text-[10px] text-amber-400 font-medium tracking-wider uppercase leading-tight truncate" id="txt-nav-motto">
+          <p class="text-[8px] text-amber-400 font-medium tracking-wider uppercase leading-tight truncate" id="txt-nav-motto">
             FAST, FRESH AND ALWAYS READY!
           </p>
         </div>
@@ -93,15 +91,12 @@
 
       <!-- Controls & Phone -->
       <div class="flex items-center gap-1.5 shrink-0">
-        <!-- Call Button Header -->
-        <a href="tel:+251911694900" class="flex items-center gap-1 bg-gradient-to-r from-red-600 to-brand-700 hover:from-red-500 hover:to-brand-600 text-white text-[10px] sm:text-xs font-bold px-2 py-1.5 rounded-xl transition-all shadow-md">
+        <a href="tel:+251911694900" class="flex items-center gap-1 bg-gradient-to-r from-red-600 to-brand-700 text-white text-[10px] font-bold px-2 py-1.5 rounded-lg shadow">
           <i class="fa-solid fa-phone text-amber-300"></i>
-          <span class="hidden sm:inline" id="txt-call-btn">Call</span>
-          <span class="text-[10px] sm:text-xs tracking-wide">Call</span>
+          <span class="text-[10px] tracking-wide">+251911694900</span>
         </a>
 
-        <!-- Language Selector -->
-        <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-red-950/80 text-white text-[10px] sm:text-xs font-semibold py-1.5 px-1.5 rounded-xl border border-red-700/50 focus:outline-none cursor-pointer">
+        <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-red-950 text-white text-[10px] font-semibold py-1.5 px-1 rounded-lg border border-red-700/50 focus:outline-none">
           <option value="en">🇺🇸 EN</option>
           <option value="am">🇪🇹 አማ</option>
           <option value="ar">🇸🇦 ער</option>
@@ -112,37 +107,37 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative py-4 sm:py-8 px-3 bg-gradient-to-b from-[#151a28] to-[#0b0f19] border-b border-red-900/20 w-full">
-    <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
+  <section class="py-4 px-3 bg-gradient-to-b from-[#151a28] to-[#0b0f19] border-b border-red-900/20 w-full">
+    <div class="max-w-4xl mx-auto text-center w-full">
       
       <!-- Logo Image Showcase -->
-      <div class="mb-3 flex justify-center">
-        <img src="image_7b76a5.jpg" alt="Feti Pita Showcase Logo" class="h-20 sm:h-28 w-auto object-contain rounded-2xl shadow-xl border-2 border-red-500/40 glow-red">
+      <div class="mb-2.5 flex justify-center">
+        <img src="image_7b76a5.jpg" alt="Feti Pita Showcase Logo" class="h-20 w-auto object-contain rounded-xl shadow-xl border-2 border-red-500/40 glow-red">
       </div>
 
-      <h2 class="text-xl sm:text-3xl font-black text-white tracking-tight mb-1">
+      <h2 class="text-xl font-black text-white tracking-tight mb-1">
         <span id="txt-hero-title">Welcome to</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-amber-400 to-red-400">FETI-PITA</span>
       </h2>
       
-      <p class="text-amber-400 font-bold text-xs sm:text-sm mb-3" id="txt-hero-subtitle">
+      <p class="text-amber-400 font-bold text-[11px] mb-2.5" id="txt-hero-subtitle">
         FAST, FRESH AND ALWAYS READY!
       </p>
 
       <!-- Fetira Preparation Highlight Box -->
-      <div class="glass-card w-full max-w-2xl mx-auto p-3 rounded-2xl border-l-4 border-l-red-500 text-left md:text-center shadow-xl">
-        <div class="flex items-center md:justify-center gap-2 mb-1">
-          <span class="text-base sm:text-xl">🔥</span>
-          <h3 class="font-bold text-xs sm:text-sm text-white" id="txt-fetira-feature-title">
+      <div class="glass-card w-full max-w-2xl mx-auto p-2.5 rounded-xl border-l-4 border-l-red-500 text-left md:text-center shadow-lg">
+        <div class="flex items-center md:justify-center gap-1.5 mb-0.5">
+          <span class="text-base">🔥</span>
+          <h3 class="font-bold text-xs text-white" id="txt-fetira-feature-title">
             100% Hand-Stretched Fetira (ፈጢራ) Base
           </h3>
         </div>
-        <p class="text-[10px] sm:text-xs text-gray-300 leading-relaxed" id="txt-fetira-feature-desc">
+        <p class="text-[10px] text-gray-300 leading-relaxed" id="txt-fetira-feature-desc">
           Every Melewa, Ertib, and breakfast dish is freshly prepared on our hot griddle using our signature flaky, layered flatbread!
         </p>
       </div>
 
       <!-- Info Pills -->
-      <div class="flex flex-wrap justify-center gap-1.5 mt-3 text-[10px] sm:text-xs text-gray-300">
+      <div class="flex flex-wrap justify-center gap-1.5 mt-2.5 text-[9px] text-gray-300">
         <div class="flex items-center gap-1 bg-red-950/40 px-2 py-0.5 rounded-full border border-red-800/40">
           <i class="fa-solid fa-location-dot text-red-500"></i>
           <span id="txt-location-pill">Jamo 1, Behind Sadamo Tower</span>
@@ -157,10 +152,10 @@
   </section>
 
   <!-- MAIN MENU SECTION -->
-  <main class="max-w-6xl mx-auto px-3 py-5 flex-grow w-full">
+  <main class="max-w-6xl mx-auto px-3 py-4 flex-grow w-full">
     
     <!-- SEARCH & FILTER BAR -->
-    <div class="mb-5 space-y-2.5 w-full">
+    <div class="mb-4 space-y-2 w-full">
       
       <!-- Search Input -->
       <div class="relative max-w-md mx-auto w-full">
@@ -169,13 +164,13 @@
       </div>
 
       <!-- Category Filter Tabs -->
-      <div class="flex items-center gap-1.5 overflow-x-auto pb-1.5 scrollbar-none justify-start md:justify-center w-full" id="categoryTabs">
+      <div class="flex items-center gap-1 overflow-x-auto pb-1 scrollbar-none justify-start md:justify-center w-full" id="categoryTabs">
         <!-- Generated Dynamically -->
       </div>
     </div>
 
     <!-- MENU ITEMS GRID -->
-    <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 w-full">
+    <div id="menuGrid" class="flex flex-col gap-2 w-full">
       <!-- Items Injected by JS -->
     </div>
 
@@ -187,30 +182,30 @@
 
   </main>
 
-  <!-- COMPACT FLOATING MOBILE CALL BUTTON -->
-  <a href="tel:+251911694900" class="fixed bottom-4 right-4 z-50 flex items-center justify-center w-11 h-11 bg-red-600 text-white rounded-full shadow-2xl border-2 border-amber-400 hover:bg-red-500 active:scale-90 transition-all">
+  <!-- FLOATING MOBILE CALL BUTTON -->
+  <a href="tel:+251911694900" class="fixed bottom-4 right-4 z-50 flex items-center justify-center w-11 h-11 bg-red-600 text-white rounded-full shadow-2xl border-2 border-amber-400 active:scale-90 transition-all">
     <i class="fa-solid fa-phone text-base text-amber-300"></i>
   </a>
 
   <!-- FOOTER -->
-  <footer class="bg-[#080b12] border-t border-red-950 py-5 px-3 text-center text-xs text-gray-400 w-full">
-    <div class="max-w-4xl mx-auto space-y-2 w-full">
+  <footer class="bg-[#080b12] border-t border-red-950 py-4 px-3 text-center text-xs text-gray-400 w-full">
+    <div class="max-w-4xl mx-auto space-y-1.5 w-full">
       
       <div class="flex items-center justify-center gap-2">
         <img src="image_7b76a5.jpg" alt="Feti Pita Footer Logo" class="h-6 w-auto rounded-md">
-        <span class="font-extrabold text-sm text-white">FETI<span class="text-red-500">-PITA</span></span>
+        <span class="font-extrabold text-xs text-white">FETI<span class="text-red-500">-PITA</span></span>
       </div>
 
-      <p class="text-amber-400 font-medium text-[10px]" id="txt-footer-motto">
+      <p class="text-amber-400 font-medium text-[9px]" id="txt-footer-motto">
         FAST, FRESH AND ALWAYS READY!
       </p>
 
-      <p class="text-gray-300 text-[10px]" id="txt-footer-location">
+      <p class="text-gray-300 text-[9px]" id="txt-footer-location">
         📍 Jamo 1, Behind Sadamo Tower, Addis Ababa | 📞 +251 911 694 900
       </p>
 
-      <p class="text-gray-500 text-[9px] pt-2 border-t border-gray-800">
-        &copy; 2026 FETI-PITA Fast Food. All Rights Reserved. Digital Menu Showcase.
+      <p class="text-gray-500 text-[8px] pt-1.5 border-t border-gray-800">
+        &copy; 2026 FETI-PITA Fast Food. All Rights Reserved.
       </p>
 
     </div>
@@ -218,12 +213,10 @@
 
   <!-- JAVASCRIPT APP DATA & LOGIC -->
   <script>
-    // TRANSLATIONS DATA
     const i18n = {
       en: {
         topHours: "Open Daily: 7:00 AM – 9:00 PM | Jamo 1, Behind Sadamo Tower",
         motto: "FAST, FRESH AND ALWAYS READY!",
-        callBtn: "Call",
         heroTitle: "Welcome to",
         heroSubtitle: "FAST, FRESH AND ALWAYS READY!",
         fetiraTitle: "100% Hand-Stretched Fetira (ፈጢራ) Base",
@@ -246,7 +239,6 @@
       am: {
         topHours: "በየቀኑ ክፍት ነው፡ ከጠዋቱ 1:00 እስከ ማታ 3:00 | ጃሞ 1 ከሳዳሞ ታወር ጀርባ",
         motto: "ፈጣን፡ ትኩስ እና ሁልጊዜ ዝግጁ!",
-        callBtn: "ደውል",
         heroTitle: "እንኳን ደህና መጡ ወደ",
         heroSubtitle: "ፈጣን፡ ትኩስ እና ሁልጊዜ ዝግጁ!",
         fetiraTitle: "በእጅ የተዘረጋ 100% የፈጢራ መሰረት",
@@ -269,7 +261,6 @@
       ar: {
         topHours: "مفتوح يومياً: 7:00 صباحاً – 9:00 مساءً | جامو 1، خلف برج سادامو",
         motto: "سريع، طازج وجاهز دائماً!",
-        callBtn: "اتصال",
         heroTitle: "أهلاً بكم في",
         heroSubtitle: "سريع، طازج وجاهز دائماً!",
         fetiraTitle: "قاعدة فطيرة طازجة 100% محضرة يدوياً",
@@ -291,30 +282,22 @@
       }
     };
 
-    // MENU DATABASE
     const menuItems = [
-      // Melewa
       { id: 1, category: "melewa", nameEn: "Melewa with Beef", nameAm: "የበሬ ስጋ መለዋ", nameAr: "ملوى باللحم البقري", price: 400, icon: "🥩" },
       { id: 2, category: "melewa", nameEn: "Melewa with Chicken", nameAm: "የዶሮ ስጋ መለዋ", nameAr: "ملوى بالدجاج", price: 400, icon: "🍗" },
       { id: 3, category: "melewa", nameEn: "Special Melewa", nameAm: "ስፔሻል መለዋ", nameAr: "ملوى سبشيل", price: 460, icon: "⭐" },
       { id: 4, category: "melewa", nameEn: "Melewa with Egg & Vegetable", nameAm: "የእንቁላል እና አትክልት መለዋ", nameAr: "ملوى بالبيض والخضار", price: 180, icon: "🥚" },
       { id: 5, category: "melewa", nameEn: "Melewa with Honey", nameAm: "የማር መለዋ", nameAr: "ملوى بالعسل", price: 150, icon: "🍯" },
       { id: 6, category: "melewa", nameEn: "Vegetable Melewa", nameAm: "የአትክልት መለዋ", nameAr: "ملوى بالخضار", price: 150, icon: "🥗" },
-
-      // Ertib & Sides
       { id: 7, category: "ertib", nameEn: "Normal Ertib", nameAm: "ኖርማል እርጥብ", nameAr: "إرطب عادي", price: 200, icon: "🌯" },
       { id: 8, category: "ertib", nameEn: "Special Ertib", nameAm: "ስፔሻል እርጥብ", nameAr: "إرطب سبشيل", price: 300, icon: "👑" },
       { id: 9, category: "ertib", nameEn: "Sambusa", nameAm: "ሳምቡሳ", nameAr: "سمبوسة", price: 40, icon: "📐" },
       { id: 10, category: "ertib", nameEn: "French Fries", nameAm: "የድንች ጥብስ (ቺፕስ)", nameAr: "بطاطس مقلية", price: 200, icon: "🍟" },
       { id: 11, category: "ertib", nameEn: "Felafil", nameAm: "ፈላፍል", nameAr: "فلافل", price: 250, icon: "🧆" },
-
-      // Breakfast
       { id: 12, category: "breakfast", nameEn: "Enkulal Firfir", nameAm: "እንቁላል ፍርፍር", nameAr: "شكشوكة", price: 350, icon: "🍳" },
       { id: 13, category: "breakfast", nameEn: "Ful", nameAm: "ፉል", nameAr: "فول مدمس", price: 250, icon: "🫘" },
       { id: 14, category: "breakfast", nameEn: "Normal Chechebsa", nameAm: "ኖርማል ጨጨብሳ", nameAr: "شيشبسا عادي", price: 320, icon: "🫓" },
       { id: 15, category: "breakfast", nameEn: "Special Chechebsa", nameAm: "ስፔሻል ጨጨብሳ", nameAr: "شيشبسا سبشيل", price: 350, icon: "🌟" },
-
-      // Juices
       { id: 16, category: "juices", nameEn: "Temr Juice (Date Juice)", nameAm: "ተመር ጁስ", nameAr: "عصير تمر", price: 250, icon: "🌴" },
       { id: 17, category: "juices", nameEn: "Gishata Juice (Soursop)", nameAm: "ጊሻጣ ጁስ", nameAr: "عصير قشطة", price: 200, icon: "🥑" },
       { id: 18, category: "juices", nameEn: "Yogurt (500ml Plain)", nameAm: "እርጎ (500ml)", nameAr: "زبادي (500 مل)", price: 120, icon: "🥛" },
@@ -323,13 +306,9 @@
       { id: 21, category: "juices", nameEn: "Yogurt with Chocolate (250ml)", nameAm: "እርጎ በቾኮሌት (250ml)", nameAr: "زبادي بالشوكولاتة (250 مل)", price: 100, icon: "🍫" },
       { id: 22, category: "juices", nameEn: "Yogurt with Honey (500ml)", nameAm: "እርጎ በማር (500ml)", nameAr: "زبادي بالعسل (500 مل)", price: 150, icon: "🍯" },
       { id: 23, category: "juices", nameEn: "Yogurt with Honey (250ml)", nameAm: "እርጎ በማር (250ml)", nameAr: "زبادي بالعسل (250 مل)", price: 100, icon: "🍯" },
-
-      // Hot Drinks
       { id: 24, category: "drinks", nameEn: "Tea", nameAm: "ሻይ", nameAr: "شاي", price: 30, icon: "🫖" },
       { id: 25, category: "drinks", nameEn: "Coffee", nameAm: "ቡና", nameAr: "قهوة", price: 50, icon: "☕" },
       { id: 26, category: "drinks", nameEn: "Peanut Tea", nameAm: "የለውዝ ሻይ", nameAr: "شاي بالفول السوداني", price: 70, icon: "🥜" },
-
-      // Extras
       { id: 27, category: "extra", nameEn: "Extra Beef", nameAm: "ተጨማሪ የበሬ ስጋ", nameAr: "إضافة لحم بقري", price: 40, icon: "🥩" },
       { id: 28, category: "extra", nameEn: "Extra Chicken", nameAm: "ተጨማሪ የዶሮ ስጋ", nameAr: "إضافة دجاج", price: 40, icon: "🍗" },
       { id: 29, category: "extra", nameEn: "Mayonnaise", nameAm: "ማዮኔዝ", nameAr: "مايونيز", price: 40, icon: "🫙" },
@@ -339,22 +318,18 @@
     let currentLang = 'en';
     let currentCategory = 'all';
 
-    // INITIALIZE APP
     window.addEventListener('DOMContentLoaded', () => {
       renderCategoryTabs();
       renderMenu();
     });
 
-    // CHANGE LANGUAGE
     function changeLanguage(lang) {
       currentLang = lang;
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-      // Update static texts
       document.getElementById('txt-top-hours').innerText = i18n[lang].topHours;
       document.getElementById('txt-nav-motto').innerText = i18n[lang].motto;
-      document.getElementById('txt-call-btn').innerText = i18n[lang].callBtn;
       document.getElementById('txt-hero-title').innerText = i18n[lang].heroTitle;
       document.getElementById('txt-hero-subtitle').innerText = i18n[lang].heroSubtitle;
       document.getElementById('txt-fetira-feature-title').innerText = i18n[lang].fetiraTitle;
@@ -370,7 +345,6 @@
       renderMenu();
     }
 
-    // RENDER CATEGORY FILTER TABS
     function renderCategoryTabs() {
       const container = document.getElementById('categoryTabs');
       const cats = i18n[currentLang].categories;
@@ -379,10 +353,10 @@
       container.innerHTML = keys.map(key => {
         const active = currentCategory === key;
         const activeClass = active 
-          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white font-bold shadow-lg shadow-red-900/40 border-red-500' 
-          : 'bg-[#151a28] text-gray-300 hover:bg-red-950/50 hover:text-white border-red-900/30';
+          ? 'bg-red-600 text-white font-bold border-red-500' 
+          : 'bg-[#151a28] text-gray-300 border-red-900/30';
         return `
-          <button onclick="setCategory('${key}')" class="px-2.5 py-1 rounded-xl text-[10px] sm:text-xs whitespace-nowrap border transition-all ${activeClass}">
+          <button onclick="setCategory('${key}')" class="px-2.5 py-1 rounded-lg text-[10px] whitespace-nowrap border ${activeClass}">
             ${cats[key]}
           </button>
         `;
@@ -395,7 +369,6 @@
       renderMenu();
     }
 
-    // RENDER MENU ITEMS
     function renderMenu() {
       const grid = document.getElementById('menuGrid');
       const noResults = document.getElementById('noResults');
@@ -418,19 +391,19 @@
       grid.innerHTML = filtered.map(item => {
         const title = currentLang === 'am' ? item.nameAm : (currentLang === 'ar' ? item.nameAr : item.nameEn);
         return `
-          <div class="glass-card rounded-xl p-3 flex items-center justify-between gap-2 w-full overflow-hidden">
-            <div class="flex items-center gap-2.5 min-w-0 flex-1">
-              <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-red-900/60 to-red-950 flex items-center justify-center text-lg border border-red-800/40 shrink-0">
+          <div class="glass-card rounded-xl p-2.5 flex items-center justify-between gap-2 w-full overflow-hidden">
+            <div class="flex items-center gap-2 min-w-0 flex-1">
+              <div class="w-8 h-8 rounded-lg bg-red-950 flex items-center justify-center text-base border border-red-800/40 shrink-0">
                 ${item.icon}
               </div>
               <div class="min-w-0 flex-1">
                 <h4 class="font-bold text-white text-xs leading-tight truncate">${title}</h4>
-                <p class="text-[9px] text-amber-400 font-semibold mt-0.5 truncate">FETI-PITA Fast Food</p>
+                <p class="text-[8px] text-amber-400 font-medium truncate">FETI-PITA Fast Food</p>
               </div>
             </div>
-            <div class="text-right shrink-0">
-              <span class="text-sm font-extrabold text-white">${item.price}</span>
-              <span class="text-[9px] font-bold text-red-400 ml-0.5">ETB</span>
+            <div class="text-right shrink-0 bg-red-950/80 px-2 py-1 rounded-lg border border-red-800/50">
+              <span class="text-xs font-black text-white">${item.price}</span>
+              <span class="text-[9px] font-bold text-red-400">ETB</span>
             </div>
           </div>
         `;
